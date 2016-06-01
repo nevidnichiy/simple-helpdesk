@@ -1,3 +1,9 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $('.login-form').css
+    opacity: 1
+    '-webkit-transform': 'scale(1)'
+    'transform': 'scale(1)'
+    '-webkit-transition': '.5s'
+    'transition': '.5s'
+  return
+  
