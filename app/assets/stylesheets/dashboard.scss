@@ -11,3 +11,70 @@
   -webkit-transform: scale(.8);
   transform: scale(.8);
 }
+
+.badge {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  min-width: 10px;
+  padding-bottom: 5px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 5px;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.bg-pale-green {
+  background-color: rgb(230, 255, 230);
+}
+
+.bg-pale-red {
+  background-color: rgb(255, 230, 230);
+}
+
+textarea {
+  margin-top: 4px;
+}
+
+.input-control.text > label, 
+.input-control.textarea > label {
+  top: -1.5rem;
+  font: 300 1.125rem/1.1 "Segoe UI", "Open Sans", sans-serif, serif;
+}
+
+/* Comments */
+
+.comment-left, .comment-right {
+  background-color: #cfffcf;
+  padding: 20px;
+  width: 80%;
+  position: relative;
+  margin-top: 20px;
+}
+
+/* #f3961c;*/
+.comment-right {
+  float: right;
+  background-color: #ffdcdc;
+}
+
+.comment-left:before, .comment-right:before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50px;
+    border-width: 0 15px 15px;
+    border-style: solid;
+    border-color: #cfffcf transparent;
+  
+    display: block;
+    width: 0;
+}
+
+.comment-right:before {
+  left: inherit;
+  right: 50px;
+  border-color: #ffdcdc transparent;
+}

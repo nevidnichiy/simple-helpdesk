@@ -1,0 +1,36 @@
+header
+  .app-bar data-role="appbar" 
+    .container
+      a.app-bar-element.branding
+        span.mif-home
+      span.app-bar-divider
+      ul.app-bar-menu
+        li.bg-green
+          a href="new.html" 
+            span.mif-plus
+            |  Создать заявку
+        li
+          a href="" 
+            | Все заявки 
+            span.badge.bg-red.fg-white 3
+        li
+          a href=""  Архив заявок
+      ul.app-bar-menu.place-right
+        li data-flexorder="5" data-flexorderorigin="4" 
+          a.dropdown-toggle href="" 
+            span.mif-user   
+              | &nbsp;
+              = current_user.last_name
+          ul.d-menu.place-right data-role="dropdown" 
+            li
+              a href=""  Профиль
+            li
+              a href=""  Сменить пароль
+            li.divider
+            li
+              = link_to "Выход", destroy_user_session_path, method: :delete
+      .app-bar-pullbutton.automatic style=("display: none;") 
+      .clearfix style=("width: 0;") 
+      nav.app-bar-pullmenu.hidden.flexstyle-app-bar-menu style=("display: none;") 
+        ul.app-bar-pullmenubar.hidden.app-bar-menu
+        

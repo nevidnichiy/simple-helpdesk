@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Helpdesk</title>
+    <title> <%= content_for?(:title) ? yield(:title) : "Helpdesk" %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,9 +9,15 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+    <%= render 'nav' if current_user%>
+    <% flash.each do |name, msg| %>
+      <script>
+        $.Notify({
+          content: '<%= msg %>',
+          type: '<%= name %>'
+        });
+      </script>
+    <% end %>
     <%= yield %>
   </body>
 </html>
