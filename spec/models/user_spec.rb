@@ -15,7 +15,7 @@ RSpec.describe User, :type => :model do
 		expect(user.errors[:email]).to include('has already been taken')
 	end
 	it "returns a formated name as a string" do
-		user = create(:user)
+		user = create(:user, first_name: 'John', last_name: 'Doe', middle_name: 'Jonny')
 		expect(user.name).to eq 'Doe J. J.'
 	end
 end
