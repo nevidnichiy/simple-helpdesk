@@ -1,12 +1,12 @@
 header
   .app-bar data-role="appbar" 
     .container
-      a.app-bar-element.branding
+      a.app-bar-element.branding href="/"
         span.mif-home
       span.app-bar-divider
       ul.app-bar-menu
         li.bg-green
-          a href="new.html" 
+          = link_to new_ticket_path do
             span.mif-plus
             |  Создать заявку
         li
@@ -15,6 +15,10 @@ header
             span.badge.bg-red.fg-white 3
         li
           a href=""  Архив заявок
+        li
+          a href=""  Отчеты
+        li
+          a href="#" Настройки
       ul.app-bar-menu.place-right
         li data-flexorder="5" data-flexorderorigin="4" 
           a.dropdown-toggle href="" 

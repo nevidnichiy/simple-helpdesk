@@ -17,6 +17,8 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'slim-rails'
 gem 'devise'
+gem 'rolify'
+gem 'pundit'
 
 group :development, :test do
   gem 'byebug', platform: :mri

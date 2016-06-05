@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require metro
+//= require jquery.dataTables
+//= require moment-with-locales.min
 //= require_tree .

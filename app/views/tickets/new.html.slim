@@ -1,0 +1,30 @@
+h1.text-light
+  | Новая заявка
+.padding20
+.grid
+	= form_for @ticket do |f|
+	  .row.cells12
+	    .cell.offset2.colspan8
+	      .input-control.text.full-size
+	        = f.label :subject, 'Тема заявки'
+	        = f.text_field :subject
+	    .cell.offset2.colspan8
+	      .input-control.textarea.full-size
+				  = f.label :message, 'Текст заявки'
+				  = f.text_area :message, cols: 30, rows: 10
+	    .cell.offset2.colspan8
+	      h4.text-light Приоритет
+	      div data-group-type="one-state" data-role="group" 
+	        button.button Низкий
+	        button.button.active Средний
+	        button.button Высокий
+	    /.cell.offset2.colspan8
+	    /  .padding10
+	    /  h4.text-light Добавить файл
+	    /  .input-control.file.full-size data-role="input" 
+	    /    input type="file" /
+	    /    button.button
+	    /      span.mif-folder
+	  .row.cells12
+	    .cell.offset2.colspan8
+	    	= f.submit 'Создать заявку', class: 'button primary place-right'
