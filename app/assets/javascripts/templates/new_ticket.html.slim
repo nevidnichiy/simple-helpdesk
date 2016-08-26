@@ -1,0 +1,31 @@
+h1.text-light
+  | Новая заявка
+.padding20
+.grid ng-controller="NewTicketController"
+	form name="newTicketForm" ng-submit="addTicket()"
+	  .row.cells12
+	    .cell.offset2.colspan8
+	      .input-control.text.full-size
+	        label Тема заявки
+	        input name="subject" type="text" required="" ng-model="ticketSubject" ng-class="{ 'error' : newTicketForm.subject.$invalid && !newTicketForm.subject.$pristine }"
+	    .cell.offset2.colspan8
+	      .input-control.textarea.full-size
+				  label Текст заявки
+				  textarea rows="10" ng-model="ticketText" required=""
+	    .cell.offset2.colspan8
+	      h4.text-light Приоритет
+	      div data-group-type="one-state" data-role="group" 
+	        button.button.priority-low type="button" ng-click="setPriority(0)" Низкий
+	        button.button.priority-normal.active type="button" ng-click="setPriority(1)" Средний
+	        button.button.priority-high type="button" ng-click="setPriority(2)" Высокий
+	    /.cell.offset2.colspan8
+	    /  .padding10
+	    /  h4.text-light Добавить файл
+	    /  .input-control.file.full-size data-role="input" 
+	    /    input type="file" /
+	    /    button.button
+	    /      span.mif-folder
+	  .row.cells12
+	    .cell.offset2.colspan8
+	    	button.button.primary.place-right type="submit" ng-disabled="newTicketForm.$invalid"
+	    	    | Создать заявку 

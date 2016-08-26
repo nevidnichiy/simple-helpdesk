@@ -3,12 +3,12 @@
   <head>
     <title> <%= content_for?(:title) ? yield(:title) : "Helpdesk" %></title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="action-cable-url" content="ws://helpdesk-nevidnichiy.c9users.io/cable"/>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
+  <body ng-app="helpdesk">
     <%= render 'nav' if current_user%>
     <% flash.each do |name, msg| %>
       <script>

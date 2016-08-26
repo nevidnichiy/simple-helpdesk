@@ -1,0 +1,70 @@
+div
+  h1.text-light Система заявок
+  .grid
+    .row.cells2
+      .cell
+        .panel
+          .heading
+            span.icon.mif-feed
+            span.title Последние действия
+          .content
+            ul
+              li ng-repeat="action in lastActions"
+                | {{action.text}}
+      .cell
+        .panel
+          .heading
+            span.icon.mif-chart-bars
+            span.title Статистика заявок
+          .content
+            .tile.bg-orange.fg-white
+              .tile-content
+                h1.align-center 
+                  | {{stats.waiting}}
+                span.tile-label Ожидают выполнения
+            .tile.bg-green.fg-white
+              .tile-content
+                h1.align-center 
+                  | {{stats.working}}
+                span.tile-label Выполняются
+            .tile.bg-teal.fg-white
+              .tile-content
+                h1.align-center
+                  | {{stats.total}}
+                span.tile-label Всего
+    .row
+      .cell
+        .panel
+          .heading
+            span.icon.mif-list
+            span.title Мои заявки
+          .content.bg-white
+            table.table.border.bordered datatable="ng" data-searching="true"
+              thead
+                tr
+                  th #
+                  th
+                    div
+                      span.mif-info
+                  th Тема
+                  th Создана
+                  th Автор
+                  th Исполнитель
+                  th Статус
+              tbody
+                  tr ng-repeat="ticket in tickets"
+                    td 
+                      |{{ticket.id}}
+                    td 
+                    td
+                      span.text-accent
+                        |{{ticket.subject}}
+                        br/
+                      span.text-secondary
+                        |{{ticket.message}}
+                    td
+                      span.time 
+                    td 
+                    td 
+                    td 
+                    

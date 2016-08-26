@@ -1,24 +1,24 @@
 header
   .app-bar data-role="appbar" 
     .container
-      a.app-bar-element.branding href="/"
+      a.app-bar-element.branding href="#/"
         span.mif-home
       span.app-bar-divider
       ul.app-bar-menu
         li.bg-green
-          = link_to new_ticket_path do
+          a href="#/new_ticket"
             span.mif-plus
             |  Создать заявку
         li
-          a href="" 
+          a href="#/all_tickets" 
             | Все заявки 
             span.badge.bg-red.fg-white 3
         li
-          a href=""  Архив заявок
+          a href="#/archive"  Архив заявок
         li
-          a href=""  Отчеты
+          a href="#/reports"  Отчеты
         li
-          a href="#" Настройки
+          a href="#/settings" Настройки
       ul.app-bar-menu.place-right
         li data-flexorder="5" data-flexorderorigin="4" 
           a.dropdown-toggle href="" 
@@ -27,7 +27,7 @@ header
               = current_user.name
           ul.d-menu.place-right data-role="dropdown" 
             li
-              a href=""  Профиль
+              a href="#/profile"  Профиль
             li
               a href=""  Сменить пароль
             li.divider

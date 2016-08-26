@@ -78,3 +78,19 @@ textarea {
   right: 50px;
   border-color: #ffdcdc transparent;
 }
+
+
+
+.button {
+    &.priority-low.active {
+        background-color: green;
+    }
+
+    &.priority-normal.active {
+        background-color: #e3c800;
+    }
+
+    &.priority-high.active {
+        background-color: red;
+    }
+}

@@ -11,9 +11,14 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require metro
 //= require jquery.dataTables
+//= require angular
+//= require angular-route
+//= require angular-rails-templates
+//= require angular-websocket
+//= require angular-actioncable
+//= require angular-datatables
+//= require metro
+
 //= require moment-with-locales.min
 //= require_tree .
