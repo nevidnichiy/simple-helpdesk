@@ -1,0 +1,52 @@
+h1.text-light
+  | Заявка #
+  | {{ticket.id}}
+  
+.padding10
+h2.text-light
+  | {{ticket.subject}}
+hr.bg-green/
+.grid
+  .row.cells12
+    .cell.colspan2
+      strong Создана:
+    .cell.colspan10
+      | {{ticket.created_at | date : 'dd.MM.yyyy'}}
+  .row.cells12
+    .cell.colspan2
+      strong Автор:
+    .cell.colspan10
+      | {{ticket.creator}}
+  .row.cells12
+    .cell.colspan2
+      strong Приоритет:
+    .cell.colspan10
+      span class="bold {{priority.classes[ticket.priority]}}"
+        | {{priority.labels[ticket.priority]}}
+  .row.cells12
+    .cell.colspan2
+      strong Статус:
+    .cell.colspan10
+      .input-control.select
+        select ng-model="ticket.status" ng-options="statusLabels.status as label.title for label in statusLabels"
+        button.button
+          span.mif-checkmark
+  .row.cells12
+    .cell.colspan2
+      strong Текст:
+    .cell.colspan10
+      | {{ticket.message}}
+
+.padding10      
+button.button
+  span.mif-pencil
+  |  Редактировать
+
+button.button
+  | Взять в работу
+  
+button.button
+  | Отклонить
+
+button.button
+  | Выполнена

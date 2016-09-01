@@ -12,13 +12,14 @@
 //
 //= require jquery
 //= require jquery.dataTables
+//= require moment
 //= require angular
 //= require angular-route
 //= require angular-rails-templates
 //= require angular-websocket
 //= require angular-actioncable
 //= require angular-datatables
+//= require angular-moment
 //= require metro
 
-//= require moment-with-locales.min
 //= require_tree .

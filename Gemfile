@@ -20,6 +20,7 @@ gem 'slim-rails'
 gem 'devise'
 gem 'rolify'
 gem 'pundit'
+gem 'paperclip'
 
 group :development, :test do
   gem 'byebug', platform: :mri

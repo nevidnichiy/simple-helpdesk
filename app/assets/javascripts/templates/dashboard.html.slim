@@ -56,15 +56,19 @@ div
                     td 
                       |{{ticket.id}}
                     td 
+                      span class="mif-stop {{['fg-emerald', 'fg-yellow', 'fg-red'][ticket.priority]}}"
                     td
                       span.text-accent
-                        |{{ticket.subject}}
+                        a href="#/ticket/{{ticket.id}}"
+                          | {{ticket.subject | limitTo:30}}
                         br/
                       span.text-secondary
-                        |{{ticket.message}}
+                        |{{ticket.message | limitTo:40}}
                     td
-                      span.time 
+                      span am-time-ago="ticket.created_at"
                     td 
+                      | {{ticket.creator_id}}
                     td 
-                    td 
-                    
+                    td
+                      span class="badge {{statusLabel[ticket.status].class}} fg-white"
+                        | {{statusLabel[ticket.status].label}}
