@@ -12,7 +12,7 @@ angular
             return helpers;
        })
        
-       .factory('ticketsFactory', ['$http', function($http){
+       .factory('ticketsFactory', ['$http','Upload', function($http, Upload){
             var tickets = {};
             
             tickets.getTicket = function(id) {
@@ -29,8 +29,25 @@ angular
                     });
             };
             
-            tickets.createTicket = function(ticketParams){
-                return $http.post('/tickets', ticketParams).success(function(data){});
+//            tickets.createTicket = function(ticketParams, attachments){
+            tickets.createTicket = function(ticketParams) {
+                var file, options, ref;
+                var names = [];
+                file = (ref = ticketParams.files) != null ? ref : [];
+                for (var i = 0; i < ticketParams.files.length; ++i) 
+                names.push(ticketParams.files[i].name);
+                options = {
+                      url: '/tickets',
+                      method: 'POST',
+                      file: ticketParams.files,
+                      file_form_data_name: 'ticket[files]',
+                      fields: { ticket: ticketParams.ticket }
+                   }
+            //};
+            return Upload.upload(options);
+//           };
+//   return tickets;
+                //return $http.post('/tickets', ticketParams).success(function(data){});
             };
             
             tickets.updateTicket = function (argument) {};

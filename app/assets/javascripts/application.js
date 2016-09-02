@@ -20,6 +20,7 @@
 //= require angular-actioncable
 //= require angular-datatables
 //= require angular-moment
+//= require ng-file-upload
 //= require metro
 
 //= require_tree .

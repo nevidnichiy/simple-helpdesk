@@ -6,7 +6,8 @@ angular.module( 'helpdesk',
                 'templates',
                 'ngActionCable',
                 'datatables',
-                'angularMoment'
+                'angularMoment',
+                'ngFileUpload'
             ] 
         )
 // .run(function (ActionCableConfig){

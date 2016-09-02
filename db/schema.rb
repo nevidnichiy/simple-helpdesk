@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160604095420) do
+ActiveRecord::Schema.define(version: 20160901074823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20160604095420) do
   enable_extension "unaccent"
   enable_extension "pg_stat_statements"
   enable_extension "plv8"
+
+  create_table "attachments", force: :cascade do |t|
+    t.integer  "ticket_id"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.index ["ticket_id"], name: "index_attachments_on_ticket_id", using: :btree
+  end
 
   create_table "tickets", force: :cascade do |t|
     t.integer  "creator_id",              null: false
