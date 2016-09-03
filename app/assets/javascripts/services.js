@@ -12,6 +12,19 @@ angular
             return helpers;
        })
        
+       .factory('usersFactory',['$http',function($http){
+           var users = {};
+           users.getAllUsers = function(){
+             return $http.get("/users")
+                    .then(function(response) {
+                        return response.data;
+                    });
+           };
+           
+           return users;
+           
+       }])
+       
        .factory('ticketsFactory', ['$http','Upload', function($http, Upload){
             var tickets = {};
             
@@ -29,7 +42,6 @@ angular
                     });
             };
             
-//            tickets.createTicket = function(ticketParams, attachments){
             tickets.createTicket = function(ticketParams) {
                 var file, options, ref;
                 var names = [];
@@ -43,11 +55,9 @@ angular
                       file_form_data_name: 'ticket[files]',
                       fields: { ticket: ticketParams.ticket }
                    }
-            //};
+
             return Upload.upload(options);
-//           };
-//   return tickets;
-                //return $http.post('/tickets', ticketParams).success(function(data){});
+
             };
             
             tickets.updateTicket = function (argument) {};

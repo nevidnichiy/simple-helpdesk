@@ -15,8 +15,6 @@ angular
             // connect to ActionCable
             var consumer = new ActionCableChannel("ChatChannel", {user: 42, chat: 37});
             var callback = function(message) {
-              //$scope.myData.push(message);
-              console.log(message);
               $.Notify({
                   caption: 'Notify title',
                   content: message.message,
@@ -44,10 +42,8 @@ angular
               closed: "<span class='badge bg-emerald fg-white'>выполнена</span>"
           };
       
-        $scope.tickets = ticketsFactory.allTickets;
-    
-        ticketsFactory.getAllTickets().then(function(list){
-          $scope.tickets = list;
+        ticketsFactory.getAllTickets().then(function(ticketsList){
+          $scope.tickets = ticketsList;
         });
     
         $scope.stats = {
@@ -146,12 +142,46 @@ angular
 }]);
 
 angular
-       .module('helpdesk').controller('ReportsController',['$scope', function($scope){
+       .module('helpdesk')
+       .controller('EditTicketController',['$scope','ticketsFactory', 
+          function($scope, ticketsFactory){
+            $scope.ticketPriority = 1; //default priority is Normal
+            $scope.setPriority = function(priority){
+            $scope.ticketPriority = priority;
+          };
+          $scope.fileList = [];
+          $scope.addFile = function() {
+            if($scope.attachment != null) {
+              $scope.fileList.push($scope.attachment);
+              angular.element(document).find('input[name="attachment"]').next().val('');
+            }
+          };
+
+          $scope.addTicket = function() {
+
+          var ticket = { ticket:
+                          {
+                            subject: $scope.ticketSubject, 
+                            message: $scope.ticketText,
+                            priority: $scope.ticketPriority,
+                          },
+                        files: $scope.fileList  
+                        };
+    
+          ticketsFactory.createTicket(ticket);    
+          $scope.ticketSubject = '';
+          $scope.ticketText = '';
+          $scope.files = '';
+          $scope.ticketPriority = 1; // default Normal
+          $scope.setPriority(1); // restore button colors
+          $scope.fileList = [];  
+          $scope.newTicketForm.$setPristine();
+  };
     
 }]);
 
 angular
-       .module('helpdesk').controller('SettingsController',['$scope', function($scope){
+       .module('helpdesk').controller('ReportsController',['$scope', function($scope){
     
 }]);
 

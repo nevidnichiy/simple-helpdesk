@@ -24,6 +24,10 @@ angular.module( 'helpdesk',
       controller: 'TicketController',
       templateUrl: 'show_ticket.html'
     })
+    .when('/ticket/:id/edit', {
+      controller: 'EditTicketController',
+      templateUrl: 'edit_ticket.html'
+    })    
     .when('/new_ticket', {
       controller: 'NewTicketController',
       templateUrl: 'new_ticket.html'
@@ -40,9 +44,9 @@ angular.module( 'helpdesk',
       controller: 'ReportsController',
       templateUrl: 'reports.html'
     })
-    .when('/settings', {
-      controller: 'SettingsController',
-      templateUrl: 'settings.html'
+    .when('/users', {
+      controller: 'UsersController',
+      templateUrl: 'users.html'
     })
     .when('/profile', {
       controller: 'ProfileController',

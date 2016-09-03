@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   devise_for :users
   root 'dashboard#index'
   resources :tickets, :defaults => { :format => 'json' }
+  resources :users, :defaults => { :format => 'json' }
 end

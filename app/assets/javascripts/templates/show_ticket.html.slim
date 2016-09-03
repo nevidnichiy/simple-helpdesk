@@ -27,10 +27,8 @@ hr.bg-green/
     .cell.colspan2
       strong Статус:
     .cell.colspan10
-      .input-control.select
-        select ng-model="ticket.status" ng-options="statusLabels.status as label.title for label in statusLabels"
-        button.button
-          span.mif-checkmark
+        | {{ticket.status}}
+
   .row.cells12
     .cell.colspan2
       strong Текст:
@@ -38,7 +36,7 @@ hr.bg-green/
       | {{ticket.message}}
 
 .padding10      
-button.button
+a.button href="#/ticket/{{ticket.id}}/edit"
   span.mif-pencil
   |  Редактировать
 
@@ -50,3 +48,5 @@ button.button
 
 button.button
   | Выполнена
+
+/https://www.iconfinder.com/iconsets/Futurosoft_Icons
