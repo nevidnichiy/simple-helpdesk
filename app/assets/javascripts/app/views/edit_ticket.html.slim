@@ -2,21 +2,21 @@ h1.text-light
   | Редактирование заявки
 .padding20
 .grid
-	form name="TicketForm" ng-submit="updateTicket()"
+	form name="ticketForm" ng-submit="updateTicket()"
 	  .row.cells12
 	    .cell.offset2.colspan8
 	      .input-control.text.full-size
 	        label Тема заявки
-	        input type="text" required="" ng-model="ticketSubject" ng-class="{ 'error' : newTicketForm.subject.$invalid && !newTicketForm.subject.$pristine }"
+	        input type="text" required="" ng-model="ticket.subject" ng-class="{ 'error' : ticketForm.subject.$invalid && !ticketForm.subject.$pristine }"
 	    .cell.offset2.colspan8
 	      .input-control.textarea.full-size
 				  label Текст заявки
-				  textarea rows="10" ng-model="ticketText" required=""
+				  textarea rows="10" ng-model="ticket.message" required=""
 	    .cell.offset2.colspan8
 	      h4.text-light Приоритет
 	      div data-group-type="one-state" data-role="group" 
 	        button.button.priority-low type="button" ng-click="setPriority(0)" Низкий
-	        button.button.priority-normal.active type="button" ng-click="setPriority(1)" Средний
+	        button.button.priority-normal type="button" ng-click="setPriority(1)" Средний
 	        button.button.priority-high type="button" ng-click="setPriority(2)" Высокий
 	    .cell.offset2.colspan8
 	      .padding10

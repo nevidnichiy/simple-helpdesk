@@ -3,15 +3,6 @@
 angular
        .module('helpdesk')
        
-       .factory('helpersFactory', function(){
-            var helpers = {};
-            helpers.priority = {
-                labels: ['Низкий','Обычный','Высокий'],
-                classes: ['fg-emerald','fg-yellow','fg-red']  
-            };
-            return helpers;
-       })
-       
        .factory('usersFactory',['$http',function($http){
            var users = {};
            users.getAllUsers = function(){
@@ -25,6 +16,7 @@ angular
            
        }])
        
+
        .factory('ticketsFactory', ['$http','Upload', function($http, Upload){
             var tickets = {};
             
@@ -60,7 +52,22 @@ angular
 
             };
             
-            tickets.updateTicket = function (argument) {};
+            tickets.updateTicket = function (ticketId, ticketParams) {
+                var file, options, ref;
+                var names = [];
+                file = (ref = ticketParams.files) != null ? ref : [];
+                for (var i = 0; i < ticketParams.files.length; ++i) 
+                names.push(ticketParams.files[i].name);
+                options = {
+                      url: '/tickets/' + ticketId,
+                      method: 'PUT',
+                      file: ticketParams.files,
+                      file_form_data_name: 'ticket[files]',
+                      fields: { ticket: ticketParams.ticket }
+                   }
+
+            return Upload.upload(options);
+            };
             
             return tickets;           
        }]);

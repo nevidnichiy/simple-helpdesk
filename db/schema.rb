@@ -10,31 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901074823) do
+ActiveRecord::Schema.define(version: 20160905105013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "btree_gin"
-  enable_extension "btree_gist"
-  enable_extension "citext"
-  enable_extension "cube"
   enable_extension "dblink"
-  enable_extension "dict_int"
-  enable_extension "dict_xsyn"
-  enable_extension "earthdistance"
-  enable_extension "fuzzystrmatch"
-  enable_extension "hstore"
-  enable_extension "intarray"
+  enable_extension "xml2"
   enable_extension "ltree"
-  enable_extension "pg_stat_statements"
-  enable_extension "pg_trgm"
-  enable_extension "pgcrypto"
-  enable_extension "pgrowlocks"
   enable_extension "pgstattuple"
   enable_extension "tablefunc"
-  enable_extension "unaccent"
+  enable_extension "fuzzystrmatch"
+  enable_extension "citext"
   enable_extension "uuid-ossp"
-  enable_extension "xml2"
+  enable_extension "pgcrypto"
+  enable_extension "pg_trgm"
+  enable_extension "intarray"
+  enable_extension "hstore"
+  enable_extension "dict_int"
+  enable_extension "btree_gin"
+  enable_extension "pgrowlocks"
+  enable_extension "cube"
+  enable_extension "earthdistance"
+  enable_extension "btree_gist"
+  enable_extension "dict_xsyn"
+  enable_extension "unaccent"
+  enable_extension "pg_stat_statements"
   enable_extension "plv8"
 
   create_table "attachments", force: :cascade do |t|
@@ -44,6 +44,11 @@ ActiveRecord::Schema.define(version: 20160901074823) do
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
     t.index ["ticket_id"], name: "index_attachments_on_ticket_id", using: :btree
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string  "name"
+    t.boolean "visible"
   end
 
   create_table "tickets", force: :cascade do |t|

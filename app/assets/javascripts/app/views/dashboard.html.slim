@@ -10,7 +10,7 @@ div
           .content
             ul
               li ng-repeat="action in lastActions"
-                | {{action.text}}
+                | {{$ctrl.action.text}}
       .cell
         .panel
           .heading
@@ -20,17 +20,17 @@ div
             .tile.bg-orange.fg-white
               .tile-content
                 h1.align-center 
-                  | {{stats.waiting}}
+                  | {{$ctrl.stats.waiting}}
                 span.tile-label Ожидают выполнения
             .tile.bg-green.fg-white
               .tile-content
                 h1.align-center 
-                  | {{stats.working}}
+                  | {{$ctrl.stats.working}}
                 span.tile-label Выполняются
             .tile.bg-teal.fg-white
               .tile-content
                 h1.align-center
-                  | {{stats.total}}
+                  | {{$ctrl.stats.total}}
                 span.tile-label Всего
     .row
       .cell
@@ -52,7 +52,7 @@ div
                   th Исполнитель
                   th Статус
               tbody
-                  tr ng-repeat="ticket in tickets"
+                  tr ng-repeat="ticket in $ctrl.tickets"
                     td 
                       |{{ticket.id}}
                     td 
@@ -70,5 +70,5 @@ div
                       | {{ticket.creator_name}}
                     td 
                     td
-                      span class="badge {{statusLabel[ticket.status].class}} fg-white"
-                        | {{statusLabel[ticket.status].label}}
+                      span class="badge {{$ctrl.statusLabel[ticket.status].class}} fg-white"
+                        | {{$ctrl.statusLabel[ticket.status].label}}

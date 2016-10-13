@@ -21,7 +21,17 @@ header
           a.dropdown-toggle href="" Настройки
           ul.d-menu data-role="dropdown"
             li
-              a href="#/users" Пользователи 
+              a href="#/users" 
+                span.mif-users
+                |  Пользователи
+            li
+              a href="#/departments" 
+                span.mif-location-city
+                |  Подразделения     
+            li
+              a href="#/departments" 
+                span.mif-equalizer
+                |  Общие                   
       ul.app-bar-menu.place-right
         li data-flexorder="5" data-flexorderorigin="4" 
           a.dropdown-toggle href="" 
@@ -30,9 +40,13 @@ header
               = current_user.name
           ul.d-menu.place-right data-role="dropdown" 
             li
-              a href="#/profile"  Профиль
+              a href="#/profile"
+                span.mif-profile
+                |  Профиль
             li
-              a href=""  Сменить пароль
+              a href=""  
+                span.mif-key
+                |  Сменить пароль
             li.divider
             li
               = link_to "Выход", destroy_user_session_path, method: :delete

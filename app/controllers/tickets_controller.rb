@@ -5,10 +5,6 @@ class TicketsController < ApplicationController
 	  render :json => @tickets
 	end
 	
-	def new
-		@ticket = Ticket.new
-	end
-
 	def create
 		@ticket = Ticket.new(ticket_params)
 		@ticket.creator = current_user
@@ -25,6 +21,14 @@ class TicketsController < ApplicationController
 		end
 	        
 	end
+
+  def update
+    @ticket = Ticket.find(params[:id])
+    if @ticket.update(ticket_params)
+      render :json => :status_ok
+    end  
+  
+  end
 
 	def show
 		@ticket = Ticket.find(params[:id])

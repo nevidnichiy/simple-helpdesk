@@ -17,40 +17,44 @@ angular.module( 'helpdesk',
   '$routeProvider',
   function($routeProvider) {
     $routeProvider.when('/', {
-      controller: 'DashboardController',
-      templateUrl: 'dashboard.html'
+      controller: 'DashboardController as $ctrl',
+      templateUrl: 'app/views/dashboard.html'
     })
     .when('/ticket/:id', {
       controller: 'TicketController',
-      templateUrl: 'show_ticket.html'
+      templateUrl: 'app/views/show_ticket.html'
     })
     .when('/ticket/:id/edit', {
       controller: 'EditTicketController',
-      templateUrl: 'edit_ticket.html'
+      templateUrl: 'app/views/edit_ticket.html'
     })    
     .when('/new_ticket', {
       controller: 'NewTicketController',
-      templateUrl: 'new_ticket.html'
+      templateUrl: 'app/views/new_ticket.html'
     })
     .when('/all_tickets', {
       controller: 'TicketsListController',
-      templateUrl: 'all_tickets.html'
+      templateUrl: 'app/views/all_tickets.html'
     })
     .when('/archive', {
       controller: 'ArchiveController',
-      templateUrl: 'archive.html'
+      templateUrl: 'app/views/archive.html'
     })
     .when('/reports', {
       controller: 'ReportsController',
-      templateUrl: 'reports.html'
+      templateUrl: 'app/views/reports.html'
     })
     .when('/users', {
       controller: 'UsersController',
-      templateUrl: 'users.html'
+      templateUrl: 'app/views/users.html'
     })
+    .when('/departments', {
+      controller: 'DepartmentsController',
+      templateUrl: 'app/views/departments.html'
+    })    
     .when('/profile', {
       controller: 'ProfileController',
-      templateUrl: 'profile.html'
+      templateUrl: 'app/views/profile.html'
     });
   }
 ]);

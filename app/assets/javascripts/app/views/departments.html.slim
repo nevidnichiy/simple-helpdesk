@@ -1,0 +1,32 @@
+h1 Отделы
+
+table.table.border.bordered
+  thead
+    tr
+      th Наименование
+      th Действия
+  tbody
+    tr ng-repeat="department in departmentsList"
+      td
+        | {{department.name}}
+      td
+        div.toolbar
+          button.toolbar-button ng-click="editDepartment(department)"
+            span.mif-pencil
+          button.toolbar-button ng-click="deleteDepartment(department.id)"
+            span.mif-cross
+  
+button.button ng-click="addDepartment()"
+  | Добавить подразделение
+  
+div data-role="dialog" data-close-button="true" id="dialog" class="padding20 dialog"
+  h1
+    | {{dialog.title}}
+  form name="departmentForm"
+    label Наименование
+    div.input-control.text.full-size ng-class="{ 'error' : departmentForm.departmentName.$error.required && !departmentForm.departmentName.$pristine }"
+      input type="text" name="departmentName" placeholder="Наименование подразделения" ng-model="departmentName" required=""
+
+  button.button ng-click="createDialog ? addDepartment() : editDepartment()" ng-disabled="departmentForm.$invalid"
+    | {{dialog.button}}
+  
