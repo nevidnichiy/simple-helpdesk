@@ -9,11 +9,10 @@ angular
        
        DashboardController.$inject = [
             'ActionCableChannel',
-            'ticketsFactory',
-            'helpersFactory'
+            'ticketsFactory'
           ];
           
-        function DashboardController (ActionCableChannel, ticketsFactory, helpersFactory){
+        function DashboardController (ActionCableChannel, ticketsFactory){
           
           var $ctrl = this;
             
@@ -38,17 +37,6 @@ angular
               });
             });
       //ac
-      
-        $ctrl.statusLabel = {
-              inserted: {
-                class: 'bg-steel',
-                label: 'новая'
-              },
-    		      processing: "<span class='badge bg-cyan fg-white'>выполняется</span>",
-              done: "<span class='badge bg-green fg-white'>завершена</span>",
-              reject: "<span class='badge bg-darkRed fg-white'>отклонена</span>",
-              closed: "<span class='badge bg-emerald fg-white'>выполнена</span>"
-          };
       
         ticketsFactory.getAllTickets().then(function(ticketsList){
           $ctrl.tickets = ticketsList;

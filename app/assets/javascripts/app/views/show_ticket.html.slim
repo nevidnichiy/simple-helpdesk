@@ -1,42 +1,40 @@
 h1.text-light
   | Заявка #
-  | {{ticket.id}}
+  | {{$ctrl.ticket.id}}
   
 .padding10
 h2.text-light
-  | {{ticket.subject}}
+  | {{$ctrl.ticket.subject}}
 hr.bg-green/
 .grid
   .row.cells12
     .cell.colspan2
       strong Создана:
     .cell.colspan10
-      | {{ticket.created_at | date : 'dd.MM.yyyy'}}
+      | {{$ctrl.ticket.created_at | date : 'dd.MM.yyyy'}}
   .row.cells12
     .cell.colspan2
       strong Автор:
     .cell.colspan10
-      | {{ticket.creator}}
+      | {{$ctrl.ticket.creator}}
   .row.cells12
     .cell.colspan2
       strong Приоритет:
     .cell.colspan10
-      span class="bold {{priority.classes[ticket.priority]}}"
-        | {{priority.labels[ticket.priority]}}
+      priority-label priority="$ctrl.ticket.priority"
   .row.cells12
     .cell.colspan2
       strong Статус:
     .cell.colspan10
-        | {{ticket.status}}
-
+      status-label status="$ctrl.ticket.status"
   .row.cells12
     .cell.colspan2
       strong Текст:
     .cell.colspan10.pre-wrap
-      | {{ticket.message}}
+      | {{$ctrl.ticket.message}}
 
 .padding10      
-a.button href="#/ticket/{{ticket.id}}/edit"
+a.button href="#/ticket/{{$ctrl.ticket.id}}/edit"
   span.mif-pencil
   |  Редактировать
 

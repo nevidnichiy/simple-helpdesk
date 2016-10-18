@@ -9,8 +9,8 @@ div
             span.title Последние действия
           .content
             ul
-              li ng-repeat="action in lastActions"
-                | {{$ctrl.action.text}}
+              li ng-repeat="action in $ctrl.lastActions"
+                | {{action.text}}
       .cell
         .panel
           .heading
@@ -55,8 +55,8 @@ div
                   tr ng-repeat="ticket in $ctrl.tickets"
                     td 
                       |{{ticket.id}}
-                    td 
-                      span class="mif-stop {{['fg-emerald', 'fg-yellow', 'fg-red'][ticket.priority]}}"
+                    td
+                      priority-sign priority="ticket.priority"
                     td
                       span.text-accent
                         a href="#/ticket/{{ticket.id}}"
@@ -70,5 +70,4 @@ div
                       | {{ticket.creator_name}}
                     td 
                     td
-                      span class="badge {{$ctrl.statusLabel[ticket.status].class}} fg-white"
-                        | {{$ctrl.statusLabel[ticket.status].label}}
+                      status-label status="ticket.status"

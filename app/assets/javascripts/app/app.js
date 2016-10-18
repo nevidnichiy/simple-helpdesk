@@ -21,7 +21,7 @@ angular.module( 'helpdesk',
       templateUrl: 'app/views/dashboard.html'
     })
     .when('/ticket/:id', {
-      controller: 'TicketController',
+      controller: 'TicketController as $ctrl',
       templateUrl: 'app/views/show_ticket.html'
     })
     .when('/ticket/:id/edit', {
